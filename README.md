@@ -27,3 +27,7 @@ git add .
 git commit - " Comentario"
 ```
 * Poder ver historial de commits
+
+```bash
+git log
+```
