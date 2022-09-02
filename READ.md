@@ -17,8 +17,12 @@ git init
 ```bash
 git status
 ```
-*Agrega carpeta 
+* Agrega carpeta 
 
 ```bash
 git add .
+```
+* Para comentar 
+```bash
+git commit - " Comentario"
 ```
