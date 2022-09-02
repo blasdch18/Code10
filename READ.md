@@ -17,7 +17,7 @@ git init
 ```bash
 git status
 ```
-* Agrega carpeta 
+* Agrega carpeta en la memoria de la PC
 
 ```bash
 git add .
