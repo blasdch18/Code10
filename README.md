@@ -28,7 +28,7 @@ git commit - " Comentario"
 ```
 * Poder ver historial de commits
 
-[] Git log retorna ```id``` con este id vamos a poder ver el detalle de los cambios que se hicieron en ese commit.
+[ ] Git log retorna ```id``` con este id vamos a poder ver el detalle de los cambios que se hicieron en ese commit.
 
 ```bash
 git log
