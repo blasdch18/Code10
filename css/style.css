@@ -1,3 +1,7 @@
+:root {
+    font-size: 20px;
+}
+
 /* Selectores */
 /* Selector de Elemento */
 h1 {
@@ -5,6 +9,7 @@ h1 {
     background-color: beige;
     padding: 20px;
     text-align: center;
+    font-size: 3rem;
 }
 h1[role="titulo"] {
     color: black;
@@ -51,8 +56,9 @@ h1[role="titulo"] {
 }
     
 
-.laptop > span > h2, h3 {   /* > Concatenador */
+.laptop > span > h2, h3 ::before{   /* > Concatenador */
     color: blue;
+    content:"laptop";
 }
 
 .celular > h2{
@@ -105,4 +111,14 @@ h1[role="titulo"] {
 
 .div_form > form > button:focus {
     border: 2px solid red;
+}
+
+.price::before{
+    content: "$";
+    font-size: 12px;
+}
+
+.price::after {
+    content: ".00";
+    font-size: 12px;
 }
