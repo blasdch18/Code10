@@ -3,6 +3,8 @@
 h1 {
     color: green;
     background-color: beige;
+    padding: 20px;
+    text-align: center;
 }
 /* Selector de clase */
 .titulo {
