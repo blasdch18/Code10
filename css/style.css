@@ -1,3 +1,20 @@
+/* Selectores */
+/* Selector de Elemento */
+h1 {
+    color: green;
+    background-color: beige;
+}
+/* Selector de clase */
+.titulo {
+    color: red;
+    font-size: 30px;
+    background-color: aqua;       
+} 
+/* Selector de ID*/
+#titulo_huawei {
+    color: yellow;
+}
+
 #div_temas {
-    display: none;
+    display: none !important;
 }
