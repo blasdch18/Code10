@@ -70,3 +70,39 @@ h1[role="titulo"] {
 .audifonos > h3 {
     color: aqua;
 }
+
+.div_form {
+    width: 400px;
+    margin: 20px auto;
+}
+
+.div_form > form > input{
+    height: 40px;
+    border-radius: 20px;
+    width: 70%;
+    font-size: 20px;
+    padding-left: 20px;
+    outline: none;
+}
+
+.div_form > form > input:focus{
+    border: 2px solid red;
+}
+
+.div_form > form > button {
+    height: 40px;
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    width: 28%;
+}
+
+.div_form > form > button:hover {
+    background-color: #666;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.div_form > form > button:focus {
+    border: 2px solid red;
+}
