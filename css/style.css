@@ -18,7 +18,8 @@ h1[role="titulo"] {
 .titulo {
     color: red;
     font-size: 30px;
-    background-color: aqua;       
+    background-color: aqua;  
+    text-align: center;     
 } 
 /* Selector de ID*/
 #titulo_huawei {
@@ -33,14 +34,14 @@ h1[role="titulo"] {
     border:1px solid #ccc;
 }
 .big_table th, td {
-    padding: 20px;
+    padding: 10px;
 }
 
 .product_cell {
     border: 1px solid blue;
     border-radius: 10px;
     padding: 10px;
-    margin: 20px;
+    margin: 10px;
 }
 
 .product_cell:hover {
@@ -58,7 +59,7 @@ h1[role="titulo"] {
 
 .laptop > span > h2, h3 ::before{   /* > Concatenador */
     color: blue;
-    content:"laptop";
+    /*content:"laptop";*/
 }
 
 .celular > h2{
