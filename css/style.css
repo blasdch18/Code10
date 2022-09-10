@@ -32,11 +32,17 @@ h1[role="titulo"] {
 }
 
 .product_cell {
-    border: 2px solid red;
+    border: 1px solid blue;
     border-radius: 10px;
     padding: 10px;
     margin: 20px;
 }
+
+.product_cell:hover {
+    border: 1px dashed red;
+    box-shadow: 0px 0px 10px red;
+}
+    
 
 .laptop > span > h2, h3 {   /* > Concatenador */
     color: blue;
