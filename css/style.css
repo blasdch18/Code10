@@ -2,7 +2,8 @@
     font-size: 20px;
 }
 
-body {
+body {/* Segun los principios de CSS las fuentes vienen de la PC
+    Si la primera fuente no funciona va a tomar la de respaldo*/
     font-family: 'Gothic A1', sans-serif;
 }
 /* Selectores */
@@ -13,9 +14,18 @@ h1 {
     padding: 20px;
     text-align: center;
     font-size: 3rem;
+    font-family: 'Noto Sans JP', sans-serif;
 }
 h1[role="titulo"] {
     color: black;
+}
+
+h2 {
+    font-family: 'Indie Flower', cursive;
+}
+h3, p{
+    font-family: 'Yesteryear', cursive;
+
 }
 /* Selector de clase */
 .titulo {
@@ -62,6 +72,7 @@ h1[role="titulo"] {
 
 .laptop > span > h2, h3 ::before{   /* > Concatenador */
     color: blue;
+    
     /*content:"laptop";*/
 }
 
