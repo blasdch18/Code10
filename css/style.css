@@ -40,7 +40,7 @@ h3, p{
 }
 
 #div_temas {
-    display: none !important;
+    /*display: none !important;*/
 }
 .big_table {
     font-size: 30px;

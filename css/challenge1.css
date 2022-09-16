@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: hsl(30, 38%, 92%);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+}
+
+.left-img {
+    background: url(../images/image-product-desktop.jpg);
+    height: 450px;
+    width: 300px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: white;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+ 
+}
+
+.content {
+    height: 450px;
+    width: 300px;
+    background-color: white;
+    border-bottom-right-radius: 8px;
+    border-top-right-radius: 8px;
+    padding: 20px;
+}
+
+.button-container {
+    justify-content: center;
+    display: flex;
+    margin-right: 25px;
+}
+
+.subtitle {
+    font-family:"Montserrat", sans-serif;
+    color: hsl(212, 21%, 14%);
+    font-size: 12.5px;
+    font-weight: 400;
+    letter-spacing: 5px;
+    padding: 10px;
+}
+
+.title{
+    color:hsl(212, 21%, 14%);
+    font-family: "Fraunces", sans-serif;
+    padding: 10px;
+    font-weight: 700;
+    line-height: 34px;
+}
+
+.text-content{
+    font-size: 14px;
+    font-family: "Montserrat",sans-serif;
+    color: hsl(228, 12%, 48%);
+    padding: 8px;
+    font-weight: 500;
+    line-height: 22px
+}
+
+.content-size {
+    display: flex;
+    align-items: center;
+}
+
+.content-price {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.real-price {
+    text-decoration: line-through;
+    margin-right: 60px;
+    font-family: "Montserrat",sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+   
+}
+.offer-price {
+    color: hsl(158, 36%, 37%);
+    font-family: "Fraunces", sans-serif;
+    font-weight: 700;
+    margin-right: 10px;
+}
+button {
+    background-color: hsl(158, 36%, 37%);
+    color: white;
+    border-radius: 8px;
+    width: 260px;
+    height: 50px;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    gap: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+}
+.button:hover{
+
+
+}
+
