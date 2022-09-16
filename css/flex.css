@@ -1,0 +1,23 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: red;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.padre {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.hijo {
+    width: 25%;
+    height: 300px;
+    border: solid 1px green;
+    background-color: #fff;
+}
