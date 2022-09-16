@@ -2,6 +2,9 @@
     font-size: 20px;
 }
 
+body {
+    font-family: 'Gothic A1', sans-serif;
+}
 /* Selectores */
 /* Selector de Elemento */
 h1 {
