@@ -1,5 +1,8 @@
 :root {
     font-size: 20px;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 body {/* Segun los principios de CSS las fuentes vienen de la PC
@@ -39,9 +42,17 @@ h3, p{
     color: yellow;
 }
 
-#div_temas {
+.div_temas ul{
     /*display: none !important;*/
+   display: flex;
+   flex-direction: column;
+   
 }
+
+img {
+    
+}
+
 .big_table {
     font-size: 30px;
     border:1px solid #ccc;
@@ -55,6 +66,8 @@ h3, p{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
+    width: 200px;
+    height: 320px;
 }
 
 .product_cell:hover {
@@ -136,4 +149,22 @@ h3, p{
 .price::after {
     content: ".00";
     font-size: 12px;
+}
+
+@media (min-width:600px) {
+    
+
+ 
+}
+
+@media (min-width:900px) {
+    .div_temas ul{
+        /*display: none !important;*/
+       
+       display: flex;
+       flex-direction: row;
+        gap: 40px;
+      
+    }   
+
 }

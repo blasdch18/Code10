@@ -109,7 +109,7 @@ button {
     color: white;
     border-radius: 8px;
     width: 260px;
-    height: 50px;
+    height: 40px;
     font-family: "Montserrat", sans-serif;
     font-size: 14px;
     font-weight: 700;
@@ -119,7 +119,13 @@ button {
     justify-content: center;
 
     border: none;
-  
+    margin-top: 10px;
+}
+
+.button-purchase{
+    background-color: orange;
+    border: none;
+    display: none;
 }
 .button:hover{
     cursor: pointer;
@@ -156,7 +162,25 @@ button {
         border-radius: 0px;
         border-top-right-radius: 8px;
         border-bottom-right-radius: 8px;
-        padding: 20px;
+        padding: 10px;
+      }
+      button {
+        margin-top: 8px;
+        margin-left: 15px;
+        font-size: 13px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 250px;
+        height: 30px;
+      }
+      .button-purchase {
+        background-color: orange;
+
+        border: none;
+      }
+      .content-price {
+        margin-bottom: 8px;
       }
 }
 
@@ -186,14 +210,14 @@ button {
         padding: 20px;
       }
       button {
-        margin: 30px;
-        padding: 20px;
-        font-size: 20px;
+        margin: 10px;
+        margin-left: 15px;
+        font-size: 15px;
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 300px;
-        height: 50px;
+        width: 330px;
+        height: 40px;
         
       }
     
@@ -213,6 +237,12 @@ button {
       .real-price {
         margin-left: 10px;
         font-size: 13px;
+      }
+
+      .button-purchase {
+        background-color: orange;
+        display: block;
+        border: none;
       }
 }
 @media (min-width:900px) {
