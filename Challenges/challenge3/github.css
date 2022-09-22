@@ -6,14 +6,18 @@
 
 body {
     font-family: "Comic Neue", cursive;
+    background-color: #141c2f;
+    color: #fff;
+    display: flex;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
     
 }
 .container {
-    width: 400px;
-    background-color: blue;
-    display: flex;
-    flex-direction: column;
-    
+    border: solid #fff;
+    width: 600px;
+
 
 }
 
@@ -21,4 +25,26 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.section-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+.title {
+    font-size: 1.5em;
+}
+  
+.btn-mode {
+    background-color: transparent;
+    border: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.7em;
+    letter-spacing: 5px;
 }
