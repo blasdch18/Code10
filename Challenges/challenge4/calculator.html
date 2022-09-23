@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./calculator.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Calculator CSS</title>
+</head>
+<body>
+    <section>
+        <div class="section-title-theme">
+            <h4 class="text-white">Calc</h4>
+            <div class="section-theme">
+                <h6 class="text-white">THEME</h6>
+                <input 
+                    type="radio" 
+                    onchange="getColorTheme(this)"
+                    value="blue" 
+                    checked
+                    name="theme" 
+                    class="theme"
+                    > 
+                </input>
+                <input 
+                    type="radio" 
+                    onchange="getColorTheme(this)"
+                    value="white" 
+                    name="theme" 
+                    class="theme"
+                    > 
+                </input>
+                <input 
+                    type="radio" 
+                    onchange="getColorTheme(this)"
+                    value="purple" 
+                    name="theme" 
+                    class="theme"
+                    > 
+                </input>                
+            </div>
+        </div>
+
+        <div>
+            <h1>399,981</h1>
+        </div>
+        <div>
+            
+        </div>
+    </section>
+        
+</body>
+<script>
+    document.documentElement.className="theme-blue";
+
+    function getColorTheme(input) {
+        document.documentElement.className=`theme-${input.value}`;
+        console.log(input.value);
+    }
+</script>
+</html>
