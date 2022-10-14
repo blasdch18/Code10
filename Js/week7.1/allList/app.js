@@ -22,3 +22,20 @@ btnCreate.onclick = function () {
     inputTask.value= "";
 
 };
+
+function destroy() 
+{
+    //console.log("zzzz");
+    const filterTask = arrayTask.filter((task) => task._id !== Number(id));
+    arrayTask = filterTask;
+    Task.destroyRender(id);
+}
+
+function edit(id) {
+    const newText = prompt("Ingresa el nuevo nombre de la tarea");
+    //find solo retorna 1 element
+    const oneTask = arrayTasks.find(task) => task._id === id);
+    oneTask._name = newText;
+    oneTask._status = 2;
+    console.log(arrayTask);
+}

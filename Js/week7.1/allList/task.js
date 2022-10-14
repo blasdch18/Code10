@@ -26,16 +26,28 @@ export class Task {
         this._date = date;
         this._status = status;
     }
+    static destroyRender(id) {
+        const element = document.querySelector(`#task-${id}`);
+        element.remove();
+    }
+
+    static updateRender(id, name) {
+        const texto = document.querySelector(`#task-name-${id}`);
+        // Si quieren cambiar el texto de un elemento pueden usar
+        // * innerText => Antiguo
+        // * textContent => Moderno
+        texto.textContent = name;
+    }
 
     render () {
         return`
-            <div class="item__task">
+            <div id="task-${this._id}" class="item__task">
                 <input type="checkbox" />
                 <h6>${this._name}</h6>
-                <button>
+                <button onclick="edit(${this._id})">
                     <img src="./img/edit.png"/ width="15">
                 </button>
-                <button>
+                <button onclick="destroy(${this._id})">
                     <img src="./img/delete.png"/ width="15">
                 </button>
             </div>`;
