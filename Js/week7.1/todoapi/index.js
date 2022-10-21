@@ -25,8 +25,9 @@ app.post("/task", (req, res) => {
   const task = req.body;
   tasks.push(task);
   // Le voy a responder al cliente:
-  res.json({
+  res.status(201).json({
     message: "ok",
+    task,
   });
 });
 
