@@ -14,9 +14,10 @@
 </head>
 <body>
     <div class="container my-5">
-        <h1>Todo App</h1>
+        <h1 class="display-3">Todo App</h1>
         <!-- New Task -->
-        <div class="card p-3" >
+        <!--<div class="card p-3" -->
+        <my-card shadow="true" >
             <div class="input-group">    
                 <input 
                     type="text"
@@ -25,22 +26,16 @@
                 />
                 <button class="btn btn-outline-primary" type="button" id="button-addon2"> Add </button>           
             </div>
-        </div>
+        </my-card>
+            <!--</div-->
+       
         <!-- HR -->
         <div class="text-primary">
             <hr>
         </div>
         <!-- Tasks List -->
         <section id="tasks_list">
-            <div class="card mt-3 p-3">
-                Hola
-            </div>
-            <div class="card mt-3 p-3">
-                Hola
-            </div>
-            <div class="card mt-3 p-3">
-                Hola
-            </div>
+            
         </section>
     </div>
     
@@ -50,4 +45,8 @@
       integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
       crossorigin="anonymous"
     ></script>
+<script src="./components/card.js"></script>
+<script src="./components/task.js"></script>
+<scrip src="./app.js"></scrip>
+
 </html>

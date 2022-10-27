@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(9,9,121);
+    background: linear-gradient(90deg, rgba(9,9,121,1) 18%, rgba(0,212,255,1) 89%);
+    height: 100vh;
+}
+
+.card mb-3{
+    background-color: rgb(255,255,255);
+    background: linear-gradient(0deg, rgba(255,255,255,1) 0%, rgba(184,184,184,1) 56%);
+    max-width: 540px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.row g-0 {
+    display: flex;
+    flex-wrap: nowrap;
+}
+.card-img-top {
+    width: 100px;
+    margin: 20px;
+}
+ .icon {
+    width: 23px;
+ }
