@@ -44,3 +44,18 @@ function MyCard () {
         console.log('Hola Mundo');
     }
 }
+```
+
+## useState
+
+Enreact para pder almacenar un valor en una variable
+usamos un hook llamado useState
+
+useState es una funcion de react la cual nos permite poder manjear el estado de una 
+variale
+
+- Como se usa useState
+
+```Js
+
+import { useState }from "react;
