@@ -1,8 +1,11 @@
 import { useState } from "react";
 import Userinformation from "./components/UserInformation";
+import SearchContainer from "./components/SearchContainer";
+import HeaderContainer from "./components/HeaderContainer";
+
+import Swal from "sweetalert2";
 import "./App.css";
-import search from "./assets/icons/search.png";
-import sun from "./assets/icons/sun.png";
+
 
 function App() {
   const [inputText, setInputText] = useState("");
@@ -17,7 +20,14 @@ function App() {
     try {
       const response = await fetch(`https://api.github.com/users/${inputText}`);
       const data = await response.json();
+
+      if (data.message === "Not Found") {
+        Swal.fire("Error", "El usuario que buscas no existe", "error");
+        return;
+      }
+
       setUser(data);
+      setInputText("");
     } catch (error) {
       console.log("Error", error);
     }
@@ -25,29 +35,12 @@ function App() {
 
   return (
     <div className="container">
-      <div className="section-1">
-        <h4 className="title">devfinder</h4>
-        <button className="btn-mode">
-          LIGHT <img width="20" src={sun} alt="" />
-        </button>
-      </div>
-      <div className="search-container">
-        <div className="input-container">
-          <img width="15" src={search} alt="" />
-          <input
-            value={inputText}
-            onChange={handleInputChange}
-            className="input-search"
-            type="text"
-            placeholder="Search GitHub username..."
-          />
-        </div>
-        <div>
-          <button className="btn-search" onClick={searchUser}>
-            Search
-          </button>
-        </div>
-      </div>
+      <HeaderContainer />
+      <SearchContainer
+        inputText={inputText}
+        handleInputChange={handleInputChange}
+        searchUser={searchUser}
+      />
       {/* aca podemos hacer una validacion donde digamos que el div que sigue exista siempre y cuando user tengo datos */}
       {user && <Userinformation user={user} />}
     </div>
