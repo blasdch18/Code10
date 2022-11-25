@@ -1,0 +1,39 @@
+function TaskCard (props) {
+
+	const { texto, fecha } = props;
+
+    return (
+        <div className="mt-3 card p-3 mt-3 shadow-sm">
+			<div className="d-flex">
+				<span className="me-3">
+					<a	className="btn btn-sm btn-outline-primary py-0 small opacity-50">
+						✓
+					</a>
+				</span>	
+				<span>{texto}</span>		
+			</div>
+			<hr className="border border-muted border-1" />
+			<div className="d-flex justify-content-between">
+				<span className="text-muted small">
+					{fecha}
+				</span>				
+					<span className="text-success text-bold small">
+						✓&nbsp;					
+					</span>
+					<span className="text-danger small">
+						×&nbsp;
+					</span>
+				<span>
+					<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50">
+						✎
+					</button>
+					<a className="btn btn-sm btn-outline-danger py-0 small opacity-50">
+                        ×
+					</a>	
+				</span>
+			</div>
+		</div>
+    );
+}
+
+export default TaskCard;

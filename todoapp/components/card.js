@@ -1,43 +1,40 @@
-// Card hereda del objeto HTMLElement(objeto de la libreria Js)
-class Card extends HTMLElement { 
-    constructor () {
-        super(); // tu hijo te esta instanciando
-        this.class = "card p-3";
-        this.classname = "";
-    }
+class Card extends HTMLElement {
+	constructor() {
+		super();
+		this.class = "card p-3";
+	}
 
-    static get observedAttributes() {// es como un listener
-        return ["class", "classname" , "shadow"];
-    }
+	static get observedAttributes() {
+		return ["class", "classname", "shadow"];
+	}
 
-    attributeChangedCallback(prop, oldValue , newValue) { // Atributo que se esta cambiando
-        this[prop] = newValue;
-        if( prop == "shadow") {
-            this.classList.remove("shadow","shadow-sm","shadow-lg");
-            if(newValue == "true") this.classList.add("shadow");
-        }
-        // [ ] para modificar this.name (prop de objetos) this[name] (diccionaro de datos)
-    }
+	attributeChangedCallback(prop, oldvalue, newvalue) {
+		this[prop] = newvalue;
+		if (prop == "shadow") {
+			this.classList.remove("shadow");
+			if (newvalue == "true") this.classList.add("shadow");
+		}
+	}
 
-    connectedCallback() {// hace alteraciones y se agregan al DOM
-        if(this.class) {
-            const classList = this.class.split(" ");
-            classList.forEach((xclass) => {
-                this.classList.add(xclass);
-            });
-        }
+	// Cuando este elemento sea llamado a Renderizarse:
+	connectedCallback() {
+		if (this.class) {
+			const lista_de_clases = this.class.split(" ");
+			lista_de_clases.forEach((xclass) => {
+				this.classList.add(xclass);
+			});
+		}
 
-        if(this.classname) {
-            const classList = this.classname.split(" ");
-            classList.forEach((xclass) => {
-                this.classList.add(xclass);
-            }) 
-        }
-    }
+		if (this.classname) {
+			const lista_de_clases = this.classname.split(" ");
+			lista_de_clases.forEach((xclass) => {
+				this.classList.add(xclass);
+			});
+		}
+	}
 
-    disconnectCallback () {
-
-    }
+	// Cuando este elemento sea quitado de la renderización:
+	disconnectedCallback() {}
 }
 
-customElements.define("my-card",Card);
+customElements.define("my-card", Card);

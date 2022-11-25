@@ -1,17 +1,25 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
-function TaskForm () {
-    const [inputTask, setInputTask] = useState("");
+function TaskForm (props) {
+    //const [inputTask, setInputTask] = useState("");
+    const { onSubmitFunction } = props;
     const inputElement = useRef(null);
-
-
+/*
     function taskInput(e) {
         //inputTask = e.target.value; // Nadie va a reaccionar, por defecto entra
         setInputTask(e.target.value); // Todos van a reaccionar
     }
+*/
+    function inputKeyPress(e) {
+        console.log(e.key);
+        if (e.key ==="Enter") {
+            addButton();
+        }
+    }
 
     function addButton () {
-        console.log(inputElement.current.value);
+        if (inputElement.current.value === "") return ;
+        onSubmitFunction(inputElement.current.value);
         inputElement.current.value = "";
     }
 
@@ -23,7 +31,7 @@ function TaskForm () {
                         type="text"
                         className="form-control"
                         placeholder="My new task ..."
-                        onChange={taskInput}
+                        onKeyPress={inputKeyPress}
                         ref={inputElement}
                     />
                     <button 
