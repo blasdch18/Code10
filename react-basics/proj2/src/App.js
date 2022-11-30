@@ -10,9 +10,9 @@ function App() {
       text: text,
       datetime: new Date(),
     };
-    const listaTemporal = taskList;
-    listaTemporal.push(newTask);
-    setTaskList(listaTemporal);
+    //const listaTemporal = taskList;
+    //listaTemporal.push(newTask);
+    setTaskList([...taskList, newTask]);
     console.log(taskList);
   }
 
@@ -25,11 +25,10 @@ function App() {
       </div>        
       <div>
         {
-          taskList.map((index, task) => {
+          taskList.map((task, index) => {
             return (<TaskCard 
                       key={index}
-                      texto={task.text} 
-                      fecha={task.datetime}
+                      task={task}                       
                     /> 
                     );
             }

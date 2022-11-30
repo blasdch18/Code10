@@ -1,6 +1,6 @@
 function TaskCard (props) {
 
-	const { texto, fecha } = props;
+	const { task } = props;
 
     return (
         <div className="mt-3 card p-3 mt-3 shadow-sm">
@@ -10,19 +10,13 @@ function TaskCard (props) {
 						✓
 					</a>
 				</span>	
-				<span>{texto}</span>		
+				<span>{task.text}</span>		
 			</div>
 			<hr className="border border-muted border-1" />
 			<div className="d-flex justify-content-between">
 				<span className="text-muted small">
-					{fecha}
+					{String(task.datetime)}
 				</span>				
-					<span className="text-success text-bold small">
-						✓&nbsp;					
-					</span>
-					<span className="text-danger small">
-						×&nbsp;
-					</span>
 				<span>
 					<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50">
 						✎
@@ -35,5 +29,6 @@ function TaskCard (props) {
 		</div>
     );
 }
+
 
 export default TaskCard;
