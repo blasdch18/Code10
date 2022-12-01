@@ -10,12 +10,12 @@ function TaskCard (props) {
 						✓
 					</a>
 				</span>	
-				<span>{task.text}</span>		
+				<span>{task.name}</span>		
 			</div>
 			<hr className="border border-muted border-1" />
 			<div className="d-flex justify-content-between">
 				<span className="text-muted small">
-					{String(task.datetime)}
+					{String(task.createdAt)}
 				</span>				
 				<span>
 					<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50">

@@ -1,9 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {TaskForm, TaskCard} from "./components";
 
 function App() {
 
   const [ taskList, setTaskList ] = useState([]);
+
+  async function getTask() {
+    try {
+
+      const url = "https://6386dc09d9b24b1be3dff078.mockapi.io/tareas";
+
+      const response = await fetch(url);
+      const data = await response.json();
+      setTaskList(data);
+
+    } catch(error) {
+      console.log("Error",error);
+    }
+  }
 
   function addTask(text) {
     const newTask = {
@@ -11,10 +25,14 @@ function App() {
       datetime: new Date(),
     };
     //const listaTemporal = taskList;
-    //listaTemporal.push(newTask);
+    //  ... operador de propagacion (spread operator)
     setTaskList([...taskList, newTask]);
-    console.log(taskList);
   }
+
+  useEffect ( () => {
+    getTask();
+    // que provoca el []: Que se ejecute solo una vez
+  }, []);
 
   return (
     <div className="container my-5">
