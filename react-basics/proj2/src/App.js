@@ -19,14 +19,24 @@ function App() {
     }
   }
 
-  function addTask(text) {
-    const newTask = {
-      text: text,
-      datetime: new Date(),
-    };
-    //const listaTemporal = taskList;
-    //  ... operador de propagacion (spread operator)
-    setTaskList([...taskList, newTask]);
+  async function addTask(text) {
+    const newTask = JSON.stringify({ name: text });
+    try{
+      const url = "https://6386dc09d9b24b1be3dff078.mockapi.io/tareas";
+      await fetch ( url, {
+        method: "POST",
+        header: {
+          "Content-type": "application/json",
+        },
+        body: newTask,
+      });
+      await getTask();
+
+    }catch(error){
+      console.log(error);
+
+    }
+
   }
 
   useEffect ( () => {
