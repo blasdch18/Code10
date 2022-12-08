@@ -1,4 +1,10 @@
 const url = "https://6386dc09d9b24b1be3dff078.mockapi.io/tareas";
+/*
+ GET: listar
+ POST: Crear
+ PUT: Actualizar
+ DELETE: Eliminar
+*/
 
 export const get = async () => {
     try{
@@ -25,7 +31,22 @@ export const post = async(body) => {
         return data;
         
     }catch(error){
-        
+    
     }
+};
 
-}
+export const update = async(id, body) => {
+    try{
+        const response = await fetch(`${url}/${id}`,{
+            method: "PUT",
+            headers: {
+                "Content-type": "application/json",
+            },
+            body: JSON.stringify(body),
+        });
+        const data = await response.json();
+        return data;
+    }catch (error){
+        console.log(error);
+    }
+};
