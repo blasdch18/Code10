@@ -1,14 +1,18 @@
 function TaskCard (props) {
 
-	const { task } = props;
+	const { task, updateTask  } = props;
 
     return (
         <div className="mt-3 card p-3 mt-3 shadow-sm">
 			<div className="d-flex">
 				<span className="me-3">
-					<a	className="btn btn-sm btn-outline-primary py-0 small opacity-50">
+					<>
+					</>
+					<button
+						onClick={()=> updateTask(task.id)}	
+						className="btn btn-sm btn-outline-primary py-0 small opacity-50">
 						✓
-					</a>
+					</button>
 				</span>	
 				<span>{task.name}</span>		
 			</div>

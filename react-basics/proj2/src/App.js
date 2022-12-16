@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {TaskForm, TaskCard} from "./components";
-import { get, post } from "./services";
+import { get, post, update } from "./services";
 
 function App() {
 
@@ -16,6 +16,12 @@ function App() {
     await post (newTask);
     await getTask();
 
+  }
+
+  async function updateTask(id) {
+    const body = { status: 2};
+    await update(id, body);
+    await getTask();
   }
 
   useEffect ( () => {
@@ -35,7 +41,8 @@ function App() {
           taskList.map((task, index) => {
             return (<TaskCard 
                       key={index}
-                      task={task}                       
+                      task={task}       
+                      updateTask={updateTask}                
                     /> 
                     );
             }

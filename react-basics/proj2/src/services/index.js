@@ -34,7 +34,7 @@ export const post = async(body) => {
     
     }
 };
-
+// id: tarea
 export const update = async(id, body) => {
     try{
         const response = await fetch(`${url}/${id}`,{
@@ -50,3 +50,4 @@ export const update = async(id, body) => {
         console.log(error);
     }
 };
+
