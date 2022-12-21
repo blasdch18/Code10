@@ -1,4 +1,5 @@
 import Swal from "sweetalert2";
+import { destroy } from "../../services";
 
 function TaskCard (props) {
 
@@ -11,18 +12,35 @@ function TaskCard (props) {
 	};
 
 	async function confirmUpdate() {
-		const res = await Swal.fire ({
-			title: "Importante",
-			text: "Estas seguro de confirmar que terminaste esta tarea",
-			showCancelButton: true,
-			showConfirmButton: true,
-		});
+		const res = await createAlert(
+			"Estas seguro de confirmar que terminaste la tarea")		
 
 		if (res.isConfirmed) {
 			updateTask(task.id);
 		}
-
 	}
+
+	async function confirmDestroy(){
+		const isConfirmed = await createAlert(
+			"Esta seguro de hacer esta accion, ya no hay vuelta atras"
+		);
+		if( isConfirmed){
+			await destroy(task.id);
+		}
+
+	};
+	
+
+	async function createAlert (text) {
+		const res = await Swal.fire({
+			title: "Importante",
+			text,
+			showCancelButton: true,
+			showConfirmButton: true,
+		});
+		return res.isConfirmed;
+	}
+
     return (
         <div 
 			className={`mt-3 card p-3 mt-3 shadow-sm bg-opacity-25 ${
@@ -52,9 +70,11 @@ function TaskCard (props) {
 						<button className="btn btn-sm btn-outline-secondary py-0 small ">
 							✎
 						</button>
-						<a className="btn btn-sm btn-outline-danger py-0 small opacity-75">
+						<button 	
+							onClick={confirmDestroy}
+							className="btn btn-sm btn-outline-danger py-0 small opacity-75">
 							×
-						</a>	
+						</button>	
 					</span>
 				</div>
 			)}

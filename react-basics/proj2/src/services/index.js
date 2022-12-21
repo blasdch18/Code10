@@ -51,3 +51,18 @@ export const update = async(id, body) => {
     }
 };
 
+// Para eliminar solo necesitamos el id 
+export const destroy  = async(id) => {
+    try {
+        const response = await fetch(`${url}/${id}`,{
+            method: "DELETE",
+            headers: {
+                "Content-type":"application/json"
+            }
+        });
+        const data = await response.json();
+        return data;
+    }catch(error) {
+        console.log(error);
+    }
+}
