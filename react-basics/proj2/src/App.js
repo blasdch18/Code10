@@ -42,6 +42,7 @@ function App() {
             return (<TaskCard 
                       key={index}
                       task={task}       
+                      getTask={getTask}
                       updateTask={updateTask}                
                     /> 
                     );

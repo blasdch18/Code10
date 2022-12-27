@@ -3,7 +3,7 @@ import { destroy } from "../../services";
 
 function TaskCard (props) {
 
-	const { task, updateTask  } = props;
+	const { task, updateTask, getTask  } = props;
 
 	const statusClass = {
 		1:"bg-primary",
@@ -12,10 +12,10 @@ function TaskCard (props) {
 	};
 
 	async function confirmUpdate() {
-		const res = await createAlert(
+		const isConfirmed = await createAlert(
 			"Estas seguro de confirmar que terminaste la tarea")		
 
-		if (res.isConfirmed) {
+		if (isConfirmed) {
 			updateTask(task.id);
 		}
 	}
@@ -26,14 +26,14 @@ function TaskCard (props) {
 		);
 		if( isConfirmed){
 			await destroy(task.id);
+			await getTask();
 		}
-
 	};
 	
 
 	async function createAlert (text) {
 		const res = await Swal.fire({
-			title: "Importante",
+			title: "Importante!!!",
 			text,
 			showCancelButton: true,
 			showConfirmButton: true,
