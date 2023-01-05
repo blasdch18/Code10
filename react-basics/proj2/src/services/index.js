@@ -6,6 +6,18 @@ const url = "https://6386dc09d9b24b1be3dff078.mockapi.io/tareas";
  DELETE: Eliminar
 */
 
+export const getProfile = async () => {
+    try {
+        const response =  await fetch("https://api.github.com/users/blasdch18");
+        const data = await response.json();
+        return data;
+
+    }catch(error) {
+        console.log("Error",error);
+    }
+}
+
+
 export const get = async () => {
     try{
 
