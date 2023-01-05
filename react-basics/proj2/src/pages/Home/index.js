@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import {TaskForm, TaskCard} from "../../components";
 import { get, post, update } from "../../services";
 
+import { Link } from "react-router-dom";
+
 function Home() {
 
   const [ taskList, setTaskList ] = useState([]);
@@ -32,6 +34,7 @@ function Home() {
   return (
     <div className="container my-5">
       <h1 className="display-3">Todo App</h1>
+      <Link to="/perfil" className="my-3 btn btn-link"> Ir a Perfil </Link>
       <TaskForm onSubmitFunction = {addTask} />
       <div className="text-primary">
         <hr/>
