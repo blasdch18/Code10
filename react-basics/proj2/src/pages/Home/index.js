@@ -3,6 +3,7 @@ import {TaskForm, TaskCard} from "../../components";
 import { get, post, update } from "../../services";
 
 import { Link } from "react-router-dom";
+import { TaskModel } from "../../models/TaskModel";
 
 function Home() {
 
@@ -10,18 +11,27 @@ function Home() {
 
   async function getTask() {
     const tasks = await get();
-    setTaskList(tasks);
+    const taskModels = tasks.map( (task) => {
+      return new TaskModel(
+        task.id, 
+        task.name, 
+        task.createdAt, 
+        task.doneAt, 
+        task.deletedAt);
+    });
+    setTaskList(taskModels);
   }
 
   async function addTask(text) {
-    const newTask = { name: text, status: 1};
+    const newTask = new TaskModel(null,text) ;
     await post (newTask);
     await getTask();
 
   }
 
-  async function updateTask(id) {
-    const body = { status: 2};
+  async function updateTask(id, type) {
+    const body = 
+      type == "done"? { doneAt: new Date() } : { deletedAt: new Date()};
     await update(id, body);
     await getTask();
   }

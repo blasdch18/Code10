@@ -5,10 +5,14 @@ function TaskCard (props) {
 
 	const { task, updateTask, getTask  } = props;
 
-	const statusClass = {
-		1:"bg-primary",
-		2:"bg-success",
-		3:"bg-danger",
+	function statusClass () {
+		if (task.deletedAt !== null){
+			return "bg-danger";
+		}
+		if (task.doneAt !== null){
+			return "bg-success";
+		}
+		return "bg-primary";
 	};
 
 	async function confirmUpdate() {
@@ -16,7 +20,7 @@ function TaskCard (props) {
 			"Estas seguro de confirmar que terminaste la tarea")		
 
 		if (isConfirmed) {
-			updateTask(task.id);
+			await updateTask(task.id, 'done');
 		}
 	}
 
@@ -25,8 +29,7 @@ function TaskCard (props) {
 			"Esta seguro de hacer esta accion, ya no hay vuelta atras"
 		);
 		if( isConfirmed){
-			await destroy(task.id);
-			await getTask();
+			await updateTask(task.id, 'deleted');
 		}
 	};
 	
@@ -43,12 +46,10 @@ function TaskCard (props) {
 
     return (
         <div 
-			className={`mt-3 card p-3 mt-3 shadow-sm bg-opacity-25 ${
-				statusClass[task.status]
-	        }`}
+			className={`mt-3 card p-3 mt-3 shadow-sm bg-opacity-25 ${statusClass()}`}
 		>
 			<div className="d-flex">
-				{task.status === 1 && (
+				{task.doneAt === null && task.deletedAt === null &&(
 					<span className="me-3">
 						<button					
 							onClick={confirmUpdate}	
@@ -61,26 +62,56 @@ function TaskCard (props) {
 			</div>
 
 			<hr className="border border-muted border-1" />
-			{task.status ===1 && (			
+					
 				<div className="d-flex justify-content-between">
 					<span className="text-muted small">
-						{String(task.createdAt)}
-					</span>				
-					<span>
-						<button className="btn btn-sm btn-outline-secondary py-0 small ">
-							✎
-						</button>
-						<button 	
-							onClick={confirmDestroy}
-							className="btn btn-sm btn-outline-danger py-0 small opacity-75">
-							×
-						</button>	
-					</span>
+						
+						{
+							String(task.createdAt.toLocaleDateString())
+							+ " " +
+							String(task.createdAt.toLocaleTimeString())
+						}
+					</span>								
+				{task.doneAt !== null && (								
+						<span className="text-muted small">
+							✓&nbsp;
+							{
+								String(task.doneAt.toLocaleDateString())
+								+ " " +
+								String(task.doneAt.toLocaleTimeString())
+							}
+						</span>	
+						)}
+				{task.deletedAt !== null && (								
+						<span className="text-danger small">
+							×&nbsp;
+							{
+								String(task.deletedAt.toLocaleDateString())
+								+ " " +
+								String(task.deletedAt.toLocaleTimeString())
+							}
+						</span>	
+						)}				
+						<span>
+							{task.doneAt === null && task.deletedAt === null && (
+								<button className="btn btn-sm btn-outline-secondary py-0 small opacity-50 ">
+									✎
+								</button>
+							)}
+							{task.deletedAt === null && (
+								<button 	
+									onClick={confirmDestroy}
+									className="btn btn-sm btn-outline-danger py-0 small opacity-50 deleteButton">
+									×
+								</button>	
+							)}
+						</span>
 				</div>
-			)}
+			
 		</div>
-    );
+	);	
 }
+
 
 
 export default TaskCard;
