@@ -20,4 +20,33 @@ export class TaskModel {
         this.deletedAt = 
             _deletedAt === null ? null : new Date ( _deletedAt );
     }
+
+    timeElapsed(date) {
+       
+            let timeDiff = new Date () - date;
+            // strip the ms
+            timeDiff /= 1000;
+
+            if( timeDiff >86400 ){
+                return "Hace " + Math.round(timeDiff /86400) + " dia";
+            }
+            if( timeDiff >3600 ){
+                return "Hace " + Math.round(timeDiff /3600) + "hrs.";
+            }
+            if( timeDiff >60 ){
+                return "Hace " + Math.round(timeDiff /60) + " min.";
+            }
+            
+            // get seconds
+            return "Hace" +Math.round(timeDiff) + " seg.";
+        
+    }
+
+    getDateTimeString(date ) {
+        return (
+            String(date.toLocaleDateString()) 
+            + " " + 
+            String(date.toLocaleTimeString())
+        );
+    }
 }

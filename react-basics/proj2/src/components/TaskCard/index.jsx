@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import Swal from "sweetalert2";
 import { destroy } from "../../services";
 
@@ -58,38 +60,28 @@ function TaskCard (props) {
 						</button>
 					</span>
 				)}	
-				<span>{task.name}</span>						
+				<Link to={"/task/"+ task.id}>{task.name}</Link>						
 			</div>
 
 			<hr className="border border-muted border-1" />
 					
 				<div className="d-flex justify-content-between">
 					<span className="text-muted small">
-						
-						{
-							String(task.createdAt.toLocaleDateString())
-							+ " " +
-							String(task.createdAt.toLocaleTimeString())
-						}
+					
+					{String(task.timeElapsed(task.createdAt))}
 					</span>								
 				{task.doneAt !== null && (								
 						<span className="text-muted small">
-							✓&nbsp;
-							{
-								String(task.doneAt.toLocaleDateString())
-								+ " " +
-								String(task.doneAt.toLocaleTimeString())
-							}
+							✓
+							{String (task.timeElapsed(task.doneAt))}
+						
+						
 						</span>	
 						)}
 				{task.deletedAt !== null && (								
 						<span className="text-danger small">
 							×&nbsp;
-							{
-								String(task.deletedAt.toLocaleDateString())
-								+ " " +
-								String(task.deletedAt.toLocaleTimeString())
-							}
+							{String(task.timeElapsed(task.deletedAt))}
 						</span>	
 						)}				
 						<span>
