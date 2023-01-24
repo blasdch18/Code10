@@ -1,6 +1,30 @@
+import { useState  } from "react";
 import "./index.css";
+import Swal from "sweetalert2";
 
 const Login = () => {
+    const [ user, setUser ] = useState({
+        email: "",
+        password: ""
+    });
+
+    const handleInputChange = (e) => {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value,
+        });
+    };
+    const handleLogin = () => {
+        if( !user.email || !user.password ){
+            Swal.fire({
+                title: "Error",
+                text: "Completa el correo y password",
+                icon: "error",
+            });
+        }
+        console.log(user);
+    }
+
     return (
         <div className="bg__login">             
             <div 
@@ -9,21 +33,29 @@ const Login = () => {
                     height: "100vh"
                 }}
                 >
-                    <div className="card text-center p-3 opacity-75">
+                    <div className="card text-center p-3 opacity-95">
                         <h1> Login </h1>
-                        <div className="form-outline mb-4">
-                            <input type="email" id="form2Example1" className="form-control" />
-                            <label className="form-label" for="form2Example1">Email address</label>
+                        <div className="form-outline mb-2">
+                            <input 
+                                type="email" 
+                                name="email"
+                                value={user.email}
+                                className="form-control mt-3" 
+                                placeholder="Email"
+                                onChange={handleInputChange} />                          
                         </div>
-
                     
-                        <div className="form-outline mb-4">
-                            <input type="password" id="form2Example2" className="form-control" />
-                            <label className="form-label" for="form2Example2">Password</label>
+                        <div className="form-outline mb-2">
+                            <input 
+                                type="password" 
+                                name="password"
+                                value={user.password}
+                                className="form-control mt-3" 
+                                placeholder="Password"
+                                onChange={handleInputChange} />
                         </div>
-
                         
-                        <div className="row mb-4">
+                        <div className="row mb-2">
                             <div className="col d-flex justify-content-center">
                             
                             <div className="form-check">
@@ -37,11 +69,13 @@ const Login = () => {
                             <a href="#!">Forgot password?</a>
                             </div>
                         </div>
-
-                        
-                        <button type="button" className="btn btn-primary btn-block mb-4">Sign in</button>
-
-                    
+                       
+                        <button 
+                            type="button" 
+                            className="btn btn-outline-primary mt-4"
+                            onClick={handleLogin}
+                        >Sign in</button>
+                        {/* 
                         <div className="text-center">
                             <p>Not a member? <a href="#!">Register</a></p>
                             <p>or sign up with:</p>
@@ -59,11 +93,11 @@ const Login = () => {
 
                             <button type="button" className="btn btn-link btn-floating mx-1">
                             <i className="fab fa-github"></i>
-                            </button>
+            </button>*/}
                         </div>
                     </div>
             </div>
-        </div>
+        
     );
 };
 
