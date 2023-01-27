@@ -1,4 +1,5 @@
-import { useState  } from "react";
+import { useState,useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./index.css";
 import Swal from "sweetalert2";
 
@@ -7,6 +8,8 @@ const Login = () => {
         email: "",
         password: ""
     });
+
+    const history = useNavigate();
 
     const handleInputChange = (e) => {
         setUser({
@@ -21,9 +24,26 @@ const Login = () => {
                 text: "Completa el correo y password",
                 icon: "error",
             });
+            return;
         }
+        // Entonces si ambos estan llenos  vamos a guardarlos en localStorage
+        localStorage.setItem("user", JSON.stringify(user));        
+        localStorage.setItem("datos","10")
+        validateIsLogged();
+    };
+
+    const validateIsLogged = () => {
+        const user = JSON.parse(localStorage.getItem("user"));
         console.log(user);
+        if (user) {
+            // no deberiamos enviarlo a la vista de tareas ?
+            history("/");   
+        }
     }
+
+    useEffect(() => {
+        validateIsLogged();
+    },[]);
 
     return (
         <div className="bg__login">             
@@ -59,8 +79,8 @@ const Login = () => {
                             <div className="col d-flex justify-content-center">
                             
                             <div className="form-check">
-                                <input className="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                                <label className="form-check-label" for="form2Example31"> Remember me </label>
+                                <input className="form-check-input" type="checkbox" value="" id="form2Example31"  />
+                                <label className="form-check-label" > Remember me </label>
                             </div>
                             </div>
 
