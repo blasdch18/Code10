@@ -31,7 +31,7 @@ function Home() {
 
   async function updateTask(id, type) {
     const body = 
-      type == "done"? { doneAt: new Date() } : { deletedAt: new Date()};
+      type === "done"? { doneAt: new Date() } : { deletedAt: new Date()};
     await update(id, body);
     await getTask();
   }
