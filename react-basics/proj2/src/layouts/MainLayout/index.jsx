@@ -40,7 +40,7 @@ const MainLayout = () => {
                 </div>
             </div>
             </nav>
-            <h1>Main Layout</h1>
+            <h1></h1>
             <Outlet />
         </div>
     );
