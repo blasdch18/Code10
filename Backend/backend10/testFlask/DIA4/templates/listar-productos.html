@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask_ Plantillas</title>
+</head>
+<body>
+    <p> Hola estos son tus productos:  </p>
+    <p> {{ nombre }}</p>
+    <!--p> {{ lista_productos}}</p-->
+    <ul>
+        {% for producto in lista_productos %}
+        <!--li>{{ producto }}</li-->
+        {% endfor %}
+    </ul>
+</body>
+</html>
